@@ -19,8 +19,8 @@
   <body>
           <h1>LET'S BEGIN</h1>
           <h3> CHOOSE YOUR WEAPON
-          <button id="x-button">X</button> <buttonc id="o-button">O</button> </h3>
-          <div class="game--container">
+          <button id="x-button">X</button> <button id="o-button">O</button> </h3>
+          <div class="game-container">
                 <div class='row'>
                       <div data-cell-index="0" class="col-4 box alt-color"></div>
                       <div data-cell-index="1" class="col-4 box alt-color"></div>
@@ -54,7 +54,7 @@
   <footer>
             <h3> Sign up</h3>
           <form id='sign-up'>
-            <input name="credentials[email]" type="text" value="an@example.email" required>
+            <input name="credentials[email]" type="text" value="E-Mail" required>
             <input name="credentials[password]" type="password" value="an example password" required>
             <input name="credentials[password_confirmation]" type="password" value="an example password" required>
             <button>Sign up</button>
@@ -62,7 +62,7 @@
           <hr>
           <h3>Sign in</h3>
           <form id='sign-in'>
-            <input name="credentials[email]" type="text" value="an@example.email" required>
+            <input name="credentials[email]" type="text" value="E-Mail" required>
             <input name="credentials[password]" type="password" value="an example password" required>
               <button>Sign in</button>
           </form>
@@ -73,43 +73,11 @@
             <input name="passwords[new]" type="password"  placeholder='New PW' required>
               <button>Change password</button>
           </form>
-
+                <button id="sign-out"> Sign Out </button>
+<!-- <button onclick="onSignOut()">Logout</button> -->
 
               <div id='error-message'></div>
-          <!-- <div class="modal fade" id="deleteConfModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="modalH5Label">Modal title</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <form>
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Email address</label>
-                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInputPassword1">Password</label>
-                          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                        </div>
-                        <div class="form-group form-check">
-                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                          <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                      </form>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
+
 
   </footer>
 

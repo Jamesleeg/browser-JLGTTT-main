@@ -7,7 +7,7 @@ const getFormFields = require('../../../lib/get-form-fields')
 
 const onSignUp = function (event) {
   event.preventDefault()
-  
+
   // get data from html form
   const form = event.target
   const data = getFormFields(form)
@@ -30,6 +30,16 @@ const onSignIn = function (event) {
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
 }
+
+const onSignOut = function (event) {
+  event.preventDefault()
+  console.log('sign out ran')
+
+  api.signOut()
+    .then(ui.signOutSuccess)
+    .catch(ui.signOutFailure)
+}
+
 const onChangePassword = function (event) {
   event.preventDefault()
   // get data from html form
@@ -46,7 +56,8 @@ console.log(data)
 module.exports = {
   onSignUp,
   onSignIn,
-  onChangePassword
+  onChangePassword,
+  onSignOut
 }
 
 

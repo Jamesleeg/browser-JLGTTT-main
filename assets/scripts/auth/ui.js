@@ -16,7 +16,6 @@ const signInSuccess = function(response) {
 
   $('#error-message').text('Thank you for signing in')
   $('#sign-in').trigger('reset')
-  $('#books-section').show()
   $('#change-password').show()
   $('#sign-up').hide()
   $('#sign-in').hide()
@@ -24,6 +23,20 @@ const signInSuccess = function(response) {
 const signInFailure = function(response) {
   $('#error-message').text('Sign in failed, try again')
 }
+const signOutSuccess = function (response) {
+  $('#error-message').text('Signed out successfully')
+
+  $('form').trigger('reset')
+  console.log('signOutSuccess ran and nothing was returned!')
+  store.user = null
+}
+
+const signOutFailure = function (response) {
+  $('#error-message').text('Error on sign out')
+
+  console.log('signOutFailure ran')
+}
+
 
 const changePasswordSuccess = function(response) {
 
@@ -39,5 +52,7 @@ module.exports = {
   signInSuccess,
   signInFailure,
   changePasswordFailure,
-  changePasswordSuccess
+  changePasswordSuccess,
+  signOutSuccess,
+  signOutFailure
 }
