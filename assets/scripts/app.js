@@ -9,14 +9,20 @@
 // Whatever we put inside this callback function will be run whenever
 // the document has finished loading (document.onload)
 const authEvents = require('./auth/events')
-
+const gamesEvents = require('./games/events')
 
 $(() => {
 $("#sign-up").on('submit', authEvents.onSignUp)
 $("#sign-in").on('submit', authEvents.onSignIn)
 $("#change-password").on('submit', authEvents.onChangePassword)
 $("#sign-out").on('click', authEvents.onSignOut)
-// $("#new-game").click( function {
+
+
+
+
+
+
+$("#new-game").on('click', gamesEvents.onNewGame)
 //   ('#sign-up').show()
 //   ('#sign-in').show()
 // })
