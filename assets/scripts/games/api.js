@@ -19,7 +19,41 @@ const newGame = function () {
 
 
 
-module.exports = {
-newGame
+const updateGame = function (data)  {
+  return $.ajax({
+    url: `${config.apiUrl}/games/${store.game._id}`,
+    method: 'PATCH',
+    headers: {
+      Authorization: `Bearer ${store.user.token}`
+    },
+    data: data
+  })
+}
 
+const getGames = function ()  {
+  console.log('games')
+  return $.ajax({
+    url: `${config.apiUrl}/games/`,
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${store.user.token}`
+    }
+  })
+}
+
+const getGame = function (id) {
+  return $.ajax({
+    url: `${config.apiUrl}/games/${id}`,
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${store.user.token}`
+    }
+  })
+}
+
+module.exports = {
+  newGame,
+  updateGame,
+  getGames,
+  getGame
 }

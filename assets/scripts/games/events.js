@@ -11,11 +11,20 @@ const onNewGame = function () {
   event.preventDefault()
   api.newGame()
     .then(ui.onNewGameSuccess)
-      .catch(ui.onNewGameError)
+      .catch(ui.onNewGameFailure)
+
+
     }
 
+const onIndexGame = function () {
+  event.preventDefault()
+  api.index()
+  .then(ui.onIndexSuccess)
+    .catch(ui.onIndexFailure)
+}
 
 
 module.exports = {
-  onNewGame
+  onNewGame,
+  onIndexGame
 }
