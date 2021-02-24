@@ -23,7 +23,7 @@ $("#sign-out").on('click', authEvents.onSignOut)
 
 
 
-
+$('.box').on('click', gamesEvents.onBoxClick)
 $("#new-game").on('click', gamesEvents.onNewGame)
 $('#games-index').on('click', gamesEvents.onIndexGame)
 //   ('#sign-up').show()

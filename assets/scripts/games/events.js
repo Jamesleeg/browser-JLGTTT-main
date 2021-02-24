@@ -23,8 +23,15 @@ const onIndexGame = function () {
     .catch(ui.onIndexFailure)
 }
 
+const onBoxClick = function (event) {
+  if ($(event.target).text('')){
+    $(event.target).text('x')
+  }
+
+}
 
 module.exports = {
   onNewGame,
-  onIndexGame
+  onIndexGame,
+  onBoxClick
 }
