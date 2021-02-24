@@ -18,7 +18,7 @@ const onNewGame = function () {
 
 const onIndexGame = function () {
   event.preventDefault()
-  api.index()
+  api.getGames()
   .then(ui.onIndexSuccess)
     .catch(ui.onIndexFailure)
 }

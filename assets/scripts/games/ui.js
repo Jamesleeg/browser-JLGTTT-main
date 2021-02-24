@@ -3,20 +3,23 @@ const store = require('./../store')
 const onNewGameSuccess = function (response) {
   store.game = response.game
   console.log('new game started')
-$('error-message').text('Player 1, You are up')
+$('#game-message').text('Player 1, You are up')
 
+    setTimeout(() => {
+        $('#game-message').text('')
 
-
-}
+      }, 5000)
+  }
 const onNewGameFailure = function ()
  {
    console.error('error')
-   $('error-message').text('Error starting game')
+   $('#error-message').text('Error starting game')
  }
 
  const onIndexSuccess = function (responseData) {
    // extract the books from the response's data into a variable
    const games = responseData.games
+   $('game-message').text(responseData.games)
 
    // log the information we get back from the API so we know how we can
   // interact with it.
@@ -51,7 +54,7 @@ const onIndexFailure = function () {
 
 module.exports = {
   onNewGameSuccess,
-  onNewGameFailure
-  // onIndexSuccess,
-  // onIndexFailure
+  onNewGameFailure,
+  onIndexSuccess,
+  onIndexFailure
 }
