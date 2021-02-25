@@ -19,14 +19,22 @@ const newGame = function () {
 
 
 
-const updateGame = function (data)  {
+const updateGame = function (index, value, over) {
   return $.ajax({
-    url: `${config.apiUrl}/games/${store.game._id}`,
     method: 'PATCH',
+    url: config.apiUrl + '/games/' + store.game._id,
     headers: {
-      Authorization: `Bearer ${store.user.token}`
+      Authorization: 'Bearer ' + store.user.token
     },
-    data: data
+    data: {
+      game: {
+        cell: {
+          index: index,
+          value: value
+        },
+        over: over
+      }
+    }
   })
 }
 

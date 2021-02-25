@@ -3,7 +3,7 @@ const store = require('./../store')
 const onNewGameSuccess = function (response) {
   store.game = response.game
   console.log('new game started')
-$('#game-message').text('Player 1, You are up')
+  $('#game-message').text('Player 1, You are up')
 
     setTimeout(() => {
         $('#game-message').text('')
@@ -54,6 +54,14 @@ const onNewGameFailure = function ()
 const onIndexFailure = function () {
   console.log('index has failed')
 }
+
+// const onFilled = function () {
+//   $('#game-message').text('Spot IS Filled.')
+//   setTimeout(() => {
+//     $('#game-message').html('')
+//   }, 5000)
+// }
+
 // let gamesHtml = ''
 // // loop through each book from the API
 //   games.forEach(game => {
@@ -81,5 +89,6 @@ module.exports = {
   onNewGameSuccess,
   onNewGameFailure,
   onIndexSuccess,
-  onIndexFailure
+  onIndexFailure,
+  // onFilled
 }
