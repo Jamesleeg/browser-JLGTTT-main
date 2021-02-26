@@ -16,6 +16,22 @@ const onNewGameFailure = function ()
    $('#error-message').text('Error starting game')
  }
 
+ const updateGameSuccess = function (data) {
+   $('.box').show()
+   $('#game-message').text('You made your move!')
+   $('#game-message').removeClass()
+   $('#game-message').addClass('success')
+   console.log(' Data is :', data)
+ }
+ const updateGameFailure = function (error) {
+  $('#game-message').text('Error making your move ')
+  $('#game-message').removeClass()
+  $('#game-message').addClass('failure')
+  console.error(error)
+
+}
+
+
  const onIndexSuccess = function (responseData) {
    // extract the books from the response's data into a variable
    const games = responseData.games
@@ -32,7 +48,7 @@ const onNewGameFailure = function ()
   gamesHtml += `
   <p>ID: ${game._id}</p>
      <h4>Created: ${game.createdAt}</h4>
-
+<button class='games-destroy-dynamic' data-id=${game._id}>Delete Game</button>
    `
    // <button  class='books-delete-dynamic' data-id=${book._id}>
    // Delete book
@@ -54,6 +70,38 @@ const onNewGameFailure = function ()
 const onIndexFailure = function () {
   console.log('index has failed')
 }
+const onFilled = function () {
+  $('#game-message').text('NO,NO,NO! TRY AGAIN').show()
+
+  setTimeout(function () {
+    $('#game-message').hide()
+  }, 5000)
+}
+const gameOver = function () {
+  $('#game-message').text('Game, Set-Match! New Game to try again').show()
+  setTimeout(function () {
+    $('#message').hide()
+  }, 5000)
+  }
+
+  const win = function () {
+  store.gameOver = true
+
+  $('#game-message').text(`${store.player} BOOYAH! `).show()
+
+  setTimeout(function () {
+    $('#game-message').hide()
+  }, 5000)
+}
+const tie = function (msg) {
+  store.gameOver = true
+  $('#game-message').text(`Tie Game Folks! 'New Game' to try again`).show()
+
+  setTimeout(function () {
+    $('#game-message').hide()
+  }, 5000)
+}
+
 
 // const onFilled = function () {
 //   $('#game-message').text('Spot IS Filled.')
@@ -62,33 +110,18 @@ const onIndexFailure = function () {
 //   }, 5000)
 // }
 
-// let gamesHtml = ''
-// // loop through each book from the API
-//   games.forEach(game => {
-//     // add (concatenate) the book html for each book, to the booksHtml string
-//     //
-//     // when adding the delete button add a data-id attribute, with the id of the
-//     // button we want to delete
-//     // add a data-id attribute for our dynamic edit form as well
-//     // booksHtml += `
-//     //   <h4>Title: ${book.title}</h4>
-//     //   <p>Author: ${book.author}</p>
-//     //   <p>ID: ${book._id}</p>
-//     //   <form class="books-update-dynamic" data-id=${book._id}>
-//     //     <input type="text" name="book[title]" placeholder="Book Title Here" required>
-//     //     <input type="text" name="book[author]" placeholder="Book Author Here" required>
-//     //     <button type="submit">Update Book</button>
-//     //   </form>
-//     //   <button class='books-destroy-dynamic' data-id=${book._id}>Delete Book</button>
-//     //   <br>
-//     // `
-//   })
+
 
 
 module.exports = {
   onNewGameSuccess,
   onNewGameFailure,
+  updateGameSuccess,
+  updateGameFailure,
   onIndexSuccess,
   onIndexFailure,
-  // onFilled
+  onFilled,
+  gameOver,
+  win,
+  tie
 }
