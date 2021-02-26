@@ -6,8 +6,11 @@ const store = require('./../store')
 const logic = require('./logic')
 
 const onNewGame = function () {
+  store.cells = ['', '', '', '', '', '', '', '', '']
+  store.player = 'X'
+  store.gameOver = false
   $(".game-container").show()
-  const playerX = 'X'
+
 console.log('newGame')
   event.preventDefault()
     api.newGame()
@@ -26,14 +29,16 @@ const onBoxClick = function (event) {
   } else if ($(event.target).text() !== '') {
     ui.onFilled()
   } else {
+    $(event.target).text(store.player)
     const index = $(event.target).data('id')
-
+    logic.togglePlayer()
+    logic.checkCells()
     api.updateGame(index, store.player, false)
       .then(data => {
         $(event.target).text(store.player)
         store.cells[index] = store.player
-        logic.checkBoard()
-        logic.togglePlayer()
+        // logic.checkBoard()
+        //
         ui.updateGameSuccess(data)
       })
       .catch(ui.updateGameFailure)

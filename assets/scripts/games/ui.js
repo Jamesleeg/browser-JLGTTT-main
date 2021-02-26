@@ -85,8 +85,9 @@ const gameOver = function () {
   }
 
   const win = function () {
+    console.log('win')
   store.gameOver = true
-
+$('.game-container').css('pointer-events', 'none')
   $('#game-message').text(`${store.player} BOOYAH! `).show()
 
   setTimeout(function () {
