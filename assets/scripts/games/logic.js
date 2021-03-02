@@ -3,9 +3,9 @@
 const store = require('../store')
 const ui = require('./ui')
 
-// store.cells = ['', '', '', '', '', '', '', '', '']
-// store.player = 'X'
-// store.gameOver = false
+store.cells = ['', '', '', '', '', '', '', '', '']
+store.player = 'X'
+store.gameOver = false
 
 const togglePlayer = function () {
   if (store.player === 'X') {
@@ -21,7 +21,6 @@ const reset = function () {
   store.gameOver = false
   $('.box').text('')
 }
-
 
 const checkCells = function () {
   // const win = (store.cells[0] === store.cells[1] && store.cells[1] === store.cells[2] && store.cells[0] !== '') ||
@@ -44,21 +43,19 @@ const checkCells = function () {
     (store.cells[2] === 'X' && store.cells[5] === 'X' && store.cells[8] === 'X') || (store.cells[2] === 'O' && store.cells[5] === 'O' && store.cells[8] === 'O') ||
   (store.cells[2] === 'X' && store.cells[4] === 'X' && store.cells[6] === 'X') || (store.cells[2] === 'O' && store.cells[4] === 'O' && store.cells[6] === 'O')) {
     console.log('this worked')
-      ui.win() }
-      else console.log(store.cells[0])
+    ui.win() }
+  // else console.log('see this')
 
-
-    // const tie = store.cells.every(cell => {
-    //   return cell !== ''
-    // })
-     // else if ()
+  // const tie = store.cells.every(cell => {
+  //   return cell !== ''
+  // })
+  // else if ()
 
   // if (win === true) {
   //   ui.win()
   // } else if (tie) {
   //   ui.tie()
   //   }
-
 }
 
 module.exports = {

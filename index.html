@@ -19,9 +19,9 @@
   <body>
     <!-- <button id=new-game>NEW GAME!</button> -->
           <h1>LET'S BEGIN</h1>
-          <h3 class="game-container"> CHOOSE YOUR WEAPON
-      <section class=game-board>
-          <button id="x-button">X</button> <button id="o-button">O</button> </h3>
+          <!-- <h3 class="game-container"> CHOOSE YOUR WEAPON -->
+          <!-- <button id="x-button">X</button> <button id="o-button">O</button> </h3> -->
+          <section class=game-board>
             <div class="game-container">
                 <div class='row'>
                       <div data-cell-index="0" id="0" class="col-4 box alt-color"></div>
@@ -78,13 +78,14 @@
           </form>
           <hr>
 
-          <h3>Sign in</h3>
-          <form id='sign-in'>
+           <h3>Sign in</h3>
+          <form id='sign-in' class='auth-hide'>
             <input name="credentials[email]" type="email" value="E-Mail" required>
             <input name="credentials[password]" type="password" placeholder="Password" required>
-              <button>Sign in</button>
+            <button>Sign in</button>
           </form>
-      </section>
+          <hr>
+    </section>
           <hr>
       <section class='change-password-section'>
           <h3>Change password</h3>

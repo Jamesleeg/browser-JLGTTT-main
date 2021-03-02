@@ -13,11 +13,7 @@ const newGame = function () {
     data: {}
   })
   // make the api respond  to game
-
 }
-
-
-
 
 const updateGame = function (index, value, over) {
   return $.ajax({
@@ -37,8 +33,7 @@ const updateGame = function (index, value, over) {
     }
   })
 }
-
-const getGames = function ()  {
+const getGames = function () {
   console.log('games')
   return $.ajax({
     url: `${config.apiUrl}/games/`,

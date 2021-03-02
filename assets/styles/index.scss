@@ -22,3 +22,8 @@ body {
 .alt-color {
   background-color: $alt-color;
 }
+
+#new-game {
+  align-items: center;
+  display: flex;
+}
