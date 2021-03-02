@@ -15,12 +15,12 @@ const togglePlayer = function () {
   }
 }
 
-// const reset = function () {
-//   store.player = 'X'
-//   store.cells.fill('')
-//   store.gameOver = false
-//   $('.box').text('')
-// }
+const reset = function () {
+  store.player = 'X'
+  store.cells.fill('')
+  store.gameOver = false
+  $('.box').text('')
+}
 
 
 const checkCells = function () {
@@ -42,11 +42,12 @@ const checkCells = function () {
     (store.cells[0] === 'X' && store.cells[4] === 'X' && store.cells[8] === 'X') || (store.cells[0] === 'O' && store.cells[4] === 'O' && store.cells[8] === 'O') ||
     (store.cells[1] === 'X' && store.cells[4] === 'X' && store.cells[7] === 'X') || (store.cells[1] === 'O' && store.cells[4] === 'O' && store.cells[7] === 'O') ||
     (store.cells[2] === 'X' && store.cells[5] === 'X' && store.cells[8] === 'X') || (store.cells[2] === 'O' && store.cells[5] === 'O' && store.cells[8] === 'O') ||
-    (store.cells[2] === 'X' && store.cells[4] === 'X' && store.cells[6] === 'X') || (store.cells[2] === 'O' && store.cells[4] === 'O' && store.cells[6] === 'O'))
-      //     ui.isWinner()
-      ui.win()
+  (store.cells[2] === 'X' && store.cells[4] === 'X' && store.cells[6] === 'X') || (store.cells[2] === 'O' && store.cells[4] === 'O' && store.cells[6] === 'O')) {
+    console.log('this worked')
+      ui.win() }
+      else console.log(store.cells[0])
 
-    
+
     // const tie = store.cells.every(cell => {
     //   return cell !== ''
     // })
@@ -63,5 +64,5 @@ const checkCells = function () {
 module.exports = {
   togglePlayer,
   checkCells,
-  // reset
+  reset
 }

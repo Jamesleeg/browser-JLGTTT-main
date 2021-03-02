@@ -30,10 +30,12 @@ const onBoxClick = function (event) {
     ui.onFilled()
   } else {
     $(event.target).text(store.player)
-    const index = $(event.target).data('id')
+    console.log(event)
+    const index = $(event.target).data('data-cell-index')
     logic.togglePlayer()
     logic.checkCells()
-    api.updateGame(index, store.player, false)
+    console.log(store.cells, store.player)
+    api.updateGame(store.cells, store.player, false)
       .then(data => {
         $(event.target).text(store.player)
         store.cells[index] = store.player

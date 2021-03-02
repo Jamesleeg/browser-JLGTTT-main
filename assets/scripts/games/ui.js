@@ -22,6 +22,9 @@ const onNewGameFailure = function ()
    $('#game-message').removeClass()
    $('#game-message').addClass('success')
    console.log(' Data is :', data)
+   setTimeout(function () {
+     $('#game-message').hide()
+   }, 2000)
  }
  const updateGameFailure = function (error) {
   $('#game-message').text('Error making your move ')
