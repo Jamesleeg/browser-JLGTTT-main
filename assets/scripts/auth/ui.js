@@ -1,6 +1,7 @@
 const store = require('./../store')
 $('#sign-out').hide()
 const signUpSuccess = function (response) {
+    
   $('#error-message').text('Thank you for signing up')
   $('#sign-up').trigger('reset')
 

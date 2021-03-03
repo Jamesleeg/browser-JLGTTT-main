@@ -12,7 +12,7 @@ const onNewGame = function () {
   store.gameOver = false
   $('.box').text('')
   $('.game-container').show()
-
+  // $("#games-index").show()
   event.preventDefault()
   api.newGame()
     .then(ui.onNewGameSuccess)
