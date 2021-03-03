@@ -11,6 +11,7 @@ const authEvents = require('./auth/events')
 const gamesEvents = require('./games/events')
 // const logic = require('./games/logic')
 $(() => {
+  $("#new-game").hide()
   $("#games-index").hide()
   $('.game-container').hide()
   $('.change-password-section').hide()

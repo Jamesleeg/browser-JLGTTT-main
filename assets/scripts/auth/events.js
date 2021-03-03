@@ -21,6 +21,7 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   $("#games-index").show()
+  $("#new-game").show()
   event.preventDefault()
   console.log('yeahboy')
   // get data from html form
