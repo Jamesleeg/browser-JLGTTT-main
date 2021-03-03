@@ -9,7 +9,7 @@
 // the document has finished loading (document.onload)
 const authEvents = require('./auth/events')
 const gamesEvents = require('./games/events')
-const logic = require('./games/logic')
+// const logic = require('./games/logic')
 $(() => {
   $('.game-container').hide()
   $('.change-password-section').hide()
@@ -18,7 +18,7 @@ $(() => {
   $('#change-password').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('click', authEvents.onSignOut)
 
-  $('.box').on('click', logic.checkCells)
+  // $('.box').on('click', logic.checkCells)
   $('.box').on('click', gamesEvents.onBoxClick)
   $('#new-game').on('click', gamesEvents.onNewGame)
   $('#games-index').on('click', gamesEvents.onIndexGame)

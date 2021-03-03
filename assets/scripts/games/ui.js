@@ -1,13 +1,21 @@
 const store = require('./../store')
-
+// const logic = require('./logic')
 const onNewGameSuccess = function (response) {
   store.game = response.game
+  $('.game-container').css('pointer-events', 'auto')
   console.log('new game started')
   $('#game-message').text('Player 1, You are up')
+  // reset()
   setTimeout(() => {
     $('#game-message').text('')
   }, 5000)
 }
+// const reset = function () {
+//   store.player = 'X'
+//   store.cells.fill('')
+  // store.gameOver = false
+//   $('.box').text('')
+// }
 const onNewGameFailure = function () {
   console.error('error')
   $('#error-message').text('Error starting game')
@@ -15,7 +23,7 @@ const onNewGameFailure = function () {
 
 const updateGameSuccess = function (data) {
   $('.box').show()
-  $('#game-message').text('You made your move!')
+  $('#game-message').text('Next  move!')
   $('#game-message').removeClass()
   $('#game-message').addClass('success')
   console.log(' Data is :', data)
@@ -46,7 +54,8 @@ const onIndexSuccess = function (responseData) {
     gamesHtml += `
   <p>ID: ${game._id}</p>
      <h4>Created: ${game.createdAt}</h4>
-<button class='games-destroy-dynamic' data-id=${game._id}>Delete Game</button>
+
+
    `
   // <button  class='books-delete-dynamic' data-id=${book._id}>
   // Delete book
@@ -74,30 +83,31 @@ const onFilled = function () {
     $('#game-message').hide()
   }, 5000)
 }
-const gameOver = function () {
-  $('#game-message').text('Game, Set-Match! New Game to try again').show()
-  setTimeout(function () {
-    $('#message').hide()
-  }, 5000)
-}
+// one of the following 2 funcs are hiding the game message
+// const gameOver = function () {
+//   $('#game-message').text('Game, Set-Match! New Game to try again')
+//   // store.gameOver = true
+//   setTimeout(function () {
+//     $('#game-message').hide()
+//   }, 5000)
+// }
 const win = function () {
-
   console.log('win')
   store.gameOver = true
+  $('#game-win').text( 'YOU WIN BOOYAH!').show()
   $('.game-container').css('pointer-events', 'none')
-  $('#game-message').text(`${store.player} BOOYAH! `).show()
 
   setTimeout(function () {
-    $('#game-message').hide()
+    $('#game-win').hide()
   }, 5000)
 }
 const tie = function (msg) {
   store.gameOver = true
-  $('#game-message').text('Tie Game Folks! New Game to try again').show()
+  $('#game-win').text('Tie Game Folks! New Game to try again').show()
 
   setTimeout(function () {
-    $('#game-message').hide()
-  }, 5000)
+    $('#game-win').hide()
+  }, 6000)
 }
 
 // const onFilled = function () {
@@ -115,7 +125,8 @@ module.exports = {
   onIndexSuccess,
   onIndexFailure,
   onFilled,
-  gameOver,
+  // gameOver,
   win,
   tie
+  // reset
 }
