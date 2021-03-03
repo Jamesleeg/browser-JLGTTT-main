@@ -3,7 +3,7 @@ const store = require('./../store')
 const onNewGameSuccess = function (response) {
   store.game = response.game
   $('.game-container').css('pointer-events', 'auto')
-  console.log('new game started')
+
   $('#game-message').text('Player 1, You are up')
   // reset()
   setTimeout(() => {
@@ -17,7 +17,7 @@ const onNewGameSuccess = function (response) {
 //   $('.box').text('')
 // }
 const onNewGameFailure = function () {
-  console.error('error')
+
   $('#error-message').text('Error starting game')
 }
 
@@ -26,7 +26,7 @@ const updateGameSuccess = function (data) {
   $('#game-message').text('Next  move!')
   $('#game-message').removeClass()
   $('#game-message').addClass('success')
-  console.log(' Data is :', data)
+
   setTimeout(function () {
     $('#game-message').hide()
   }, 2000)
@@ -35,7 +35,7 @@ const updateGameFailure = function (error) {
   $('#game-message').text('Error making your move ')
   $('#game-message').removeClass()
   $('#game-message').addClass('failure')
-  console.error(error)
+
 }
 
 const onIndexSuccess = function (responseData) {
@@ -44,7 +44,7 @@ const onIndexSuccess = function (responseData) {
   // $('#game-message').text(games)
   // log the information we get back from the API so we know how we can
   // interact with it.
-  console.log(games)
+
   let gamesHtml = ''
   // loop over heach book in the books array
   games.forEach(game => {
@@ -74,7 +74,7 @@ const onIndexSuccess = function (responseData) {
 }
 
 const onIndexFailure = function () {
-  console.log('index has failed')
+
 }
 const onFilled = function () {
   $('#game-message').text('NO,NO,NO! TRY AGAIN').show()
@@ -92,9 +92,9 @@ const onFilled = function () {
 //   }, 5000)
 // }
 const win = function () {
-  console.log('win')
+
   store.gameOver = true
-  $('#game-win').text( 'YOU WIN BOOYAH!').show()
+  $('#game-win').text( `${store.player} YOU WIN BOOYAH!`).show()
   $('.game-container').css('pointer-events', 'none')
 
   setTimeout(function () {

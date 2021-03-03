@@ -11,7 +11,7 @@ const onNewGame = function () {
   store.gameOver = false
   $('.box').text('')
   $('.game-container').show()
-  console.log('newGame')
+
   event.preventDefault()
   api.newGame()
     .then(ui.onNewGameSuccess)
@@ -25,13 +25,13 @@ const onIndexGame = function () {
 }
 const onBoxClick = function (event) {
   if (store.gameOver) {
-    console.log('gameover')
+
     ui.win()
   } else if ($(event.target).text() !== '') {
     ui.onFilled()
   } else {
     $(event.target).text(store.player)
-    console.log(event)
+
     const index = $(event.target).data('cell-index')
     api.updateGame(store.cells, store.player, false)
       .then(data => {
@@ -40,8 +40,7 @@ const onBoxClick = function (event) {
         // $('#game-message').text('Next  move!')
         logic.checkCells()
         logic.togglePlayer()
-        console.log('winner')
-        console.log(store.cells, store.player)
+    
         // logic.checkBoard()
         //
         ui.updateGameSuccess(data)

@@ -22,7 +22,7 @@ const togglePlayer = function () {
 //   $('.box').text('')
 // }
 const checkCells = function () {
-  console.log('won')
+
   const win = (store.cells[0] === store.cells[1] && store.cells[1] === store.cells[2] && store.cells[0] !== '') ||
                   (store.cells[3] === store.cells[4] && store.cells[4] === store.cells[5] && store.cells[4] !== '') ||
                     (store.cells[6] === store.cells[7] && store.cells[7] === store.cells[8] && store.cells[7] !== '') ||
@@ -33,7 +33,7 @@ const checkCells = function () {
                           (store.cells[0] === store.cells[3] && store.cells[3] === store.cells[6] && store.cells[0] !== '') ||
                             (store.cells[1] === store.cells[4] && store.cells[4] === store.cells[7] && store.cells[1] !== '') ||
                               (store.cells[2] === store.cells[5] && store.cells[5] === store.cells[8] && store.cells[2] !== '')
-                                        console.log('finished logic')  // all columns ^
+                                        // all columns ^
   // if ((store.cells[0] === 'X' && store.cells[1] === 'X' && store.cells[2] === 'X') || (store.cells[0] === 'O' && store.cells[1] === 'O' && store.cells[2] === 'O') ||
   //   (store.cells[3] === 'X' && store.cells[4] === 'X' && store.cells[5] === 'X') || (store.cells[3] === 'O' && store.cells[4] === 'O' && store.cells[5] === 'O') ||
   //   (store.cells[6] === 'X' && store.cells[7] === 'X' && store.cells[8] === 'X') || (store.cells[6] === 'O' && store.cells[7] === 'O' && store.cells[8] === 'O') ||
