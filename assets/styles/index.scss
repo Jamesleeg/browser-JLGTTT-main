@@ -6,7 +6,13 @@ $body-bg-color: $gray-200;
 $font-color: $light;
 
 body {
-  background-color: $body-bg-color;
+  // background-color: $body-bg-color;
+  background-image: linear-gradient(Blue 30%,  orange 70%);
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+
 }
 
 .box {
@@ -22,8 +28,17 @@ body {
 .alt-color {
   background-color: $alt-color;
 }
-
+.header{
+  display: flex;
+  justify-content: center;
+  color: Orange;
+}
 #new-game {
   align-items: center;
   display: flex;
+}
+#pic {
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }
